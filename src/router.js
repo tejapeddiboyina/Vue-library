@@ -11,7 +11,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: Home
     },
     {
       path: '/about',
@@ -23,7 +23,7 @@ export default new Router({
     },
     {
       path: '/AddBook',
-      name:'AddBook',
+      name: 'AddBook',
       component: () => import('./views/AddBook.vue')
     },
     {

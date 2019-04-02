@@ -18,59 +18,70 @@ export default {
 </script>-->
 <template>
   <div id="app">
-
-
     <div @click="setFalse()">
       <img alt="Vue logo" src="../assets/logo.png">
       <button @click="getName" class="btn btn-primary" style="margin:20px">click to enter your name</button>
-      <span>welcome {{firstName}}</span><br><br>
+      <span>welcome {{firstName}}</span>
+      <br>
+      <br>
     </div>
-    
 
     <div>
-      <router-link to="/AddBook" class="btn btn-primary" style="margin:20px" @getAddedBook="pushAddedBook">AddBook</router-link>
-      <router-link :to="{name:'ReadBook', params:{books}}" class="btn btn-info" style="margin:20px">ReadBook</router-link>
+      <router-link
+        to="/AddBook"
+        class="btn btn-primary"
+        style="margin:20px"
+        @getAddedBook="pushAddedBook"
+      >AddBook</router-link>
+      <router-link
+        :to="{name:'ReadBook', params:{books}}"
+        class="btn btn-info"
+        style="margin:20px"
+      >ReadBook</router-link>
     </div>
-    <router-view />
-
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: "app",
   data() {
-    return{
-      message:'Welcome to Your Vue.js App',
-      firstName: '',
-      books:[{
-        name:'vueJs',
-        description:'vuejs for beginner',
-        image: require('../assets/logo.png'),
-        url:'https://vuejs.org/'
+    return {
+      message: "Welcome to Your Vue.js App",
+      firstName: "",
+      books: [
+        {
+          name: "vueJs",
+          description: "vuejs for beginner",
+          image: require("../assets/logo.png"),
+          url: "https://vuejs.org/",
+          status: enroll
         },
         {
-          name:'angularjs',
-          description:'angularjs for beginner',
-          image: require('../assets/ang.png'),
-          url:'https://angularjs.org/'
-      }],
-    }
+          name: "angularjs",
+          description: "angularjs for beginner",
+          image: require("../assets/ang.png"),
+          url: "https://angularjs.org/",
+          status: enroll
+        }
+      ]
+    };
   },
   methods: {
     getName() {
       this.firstName = prompt("enter your name");
     },
     pushAddedBook(book) {
-      this.books.push(book)
+      this.books.push(book);
     }
-  },
-}
+  }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
